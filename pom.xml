@@ -45,6 +45,11 @@
       <version>1.4.15</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>com.company</groupId>
+      <artifactId>mysendtask</artifactId>
+      <version>7.56.0-SNAPSHOT</version>
+    </dependency>
   </dependencies>
   <build>
     <plugins>
