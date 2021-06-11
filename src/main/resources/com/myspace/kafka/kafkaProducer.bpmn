@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.omg.org/bpmn20" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:bpsim="http://www.bpsim.org/schemas/1.0" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:drools="http://www.jboss.org/drools" id="_lvXWgMn7EeuQRM1eyNocQQ" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd http://www.omg.org/spec/DD/20100524/DC DC.xsd http://www.omg.org/spec/DD/20100524/DI DI.xsd " exporter="jBPM Process Modeler" exporterVersion="2.0" targetNamespace="http://www.omg.org/bpmn20">
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.omg.org/bpmn20" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:bpsim="http://www.bpsim.org/schemas/1.0" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:drools="http://www.jboss.org/drools" id="_2AXNcMp3EeuQRM1eyNocQQ" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd http://www.omg.org/spec/DD/20100524/DC DC.xsd http://www.omg.org/spec/DD/20100524/DI DI.xsd " exporter="jBPM Process Modeler" exporterVersion="2.0" targetNamespace="http://www.omg.org/bpmn20">
   <bpmn2:itemDefinition id="_messageBodyItem" structureRef="com.myspace.kafka.payload"/>
   <bpmn2:itemDefinition id="__5A778990-5983-4390-8C01-B1288F31F6FA_outputVarInputXItem" structureRef="com.myspace.kafka.payload"/>
-  <bpmn2:itemDefinition id="jbpmtopicType" structureRef="com.myspace.kafka.payload"/>
-  <bpmn2:message id="_lvXWhMn7EeuQRM1eyNocQQ" itemRef="jbpmtopicType" name="jbpmtopic"/>
+  <bpmn2:itemDefinition id="newjbpmType" structureRef="com.myspace.kafka.payload"/>
+  <bpmn2:message id="_2AXNdMp3EeuQRM1eyNocQQ" itemRef="newjbpmType" name="newjbpm"/>
   <bpmn2:process id="kafka.kafkaProducer" drools:packageName="com.myspace.kafka" drools:version="1.0" drools:adHoc="false" name="kafkaProducer" isExecutable="true" processType="Public">
     <bpmn2:property id="messageBody" itemSubjectRef="_messageBodyItem" name="messageBody"/>
     <bpmn2:sequenceFlow id="_A208B712-58FD-4AC8-84C3-FD72C07BC5E8" sourceRef="_123F06D4-E574-43FE-AFDA-94AB53E9A467" targetRef="_5A778990-5983-4390-8C01-B1288F31F6FA"/>
@@ -13,18 +13,18 @@
     <bpmn2:endEvent id="_5A778990-5983-4390-8C01-B1288F31F6FA">
       <bpmn2:incoming>_A208B712-58FD-4AC8-84C3-FD72C07BC5E8</bpmn2:incoming>
       <bpmn2:dataInput id="_5A778990-5983-4390-8C01-B1288F31F6FA_outputVarInputX" drools:dtype="com.myspace.kafka.payload" itemSubjectRef="__5A778990-5983-4390-8C01-B1288F31F6FA_outputVarInputXItem" name="outputVar"/>
-      <bpmn2:dataInputAssociation id="_lvXWgsn7EeuQRM1eyNocQQ">
+      <bpmn2:dataInputAssociation id="_2AXNcsp3EeuQRM1eyNocQQ">
         <bpmn2:sourceRef>messageBody</bpmn2:sourceRef>
         <bpmn2:targetRef>_5A778990-5983-4390-8C01-B1288F31F6FA_outputVarInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:inputSet id="_lvXWgcn7EeuQRM1eyNocQQ">
+      <bpmn2:inputSet id="_2AXNccp3EeuQRM1eyNocQQ">
         <bpmn2:dataInputRefs>_5A778990-5983-4390-8C01-B1288F31F6FA_outputVarInputX</bpmn2:dataInputRefs>
       </bpmn2:inputSet>
-      <bpmn2:messageEventDefinition id="_lvXWg8n7EeuQRM1eyNocQQ" drools:msgref="jbpmtopic" messageRef="_lvXWhMn7EeuQRM1eyNocQQ"/>
+      <bpmn2:messageEventDefinition id="_2AXNc8p3EeuQRM1eyNocQQ" drools:msgref="newjbpm" messageRef="_2AXNdMp3EeuQRM1eyNocQQ"/>
     </bpmn2:endEvent>
   </bpmn2:process>
-  <bpmndi:BPMNDiagram id="_lvXWhcn7EeuQRM1eyNocQQ">
-    <bpmndi:BPMNPlane id="_lvXWhsn7EeuQRM1eyNocQQ" bpmnElement="kafka.kafkaProducer">
+  <bpmndi:BPMNDiagram id="_2AXNdcp3EeuQRM1eyNocQQ">
+    <bpmndi:BPMNPlane id="_2AXNdsp3EeuQRM1eyNocQQ" bpmnElement="kafka.kafkaProducer">
       <bpmndi:BPMNShape id="shape__5A778990-5983-4390-8C01-B1288F31F6FA" bpmnElement="_5A778990-5983-4390-8C01-B1288F31F6FA">
         <dc:Bounds height="56.0" width="56.0" x="327.0" y="121.0"/>
       </bpmndi:BPMNShape>
@@ -37,12 +37,12 @@
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
-  <bpmn2:relationship id="_lvXWh8n7EeuQRM1eyNocQQ" type="BPSimData">
+  <bpmn2:relationship id="_2AXNd8p3EeuQRM1eyNocQQ" type="BPSimData">
     <bpmn2:extensionElements>
       <bpsim:BPSimData>
         <bpsim:Scenario xsi:type="bpsim:Scenario" id="default" name="Simulationscenario">
           <bpsim:ScenarioParameters xsi:type="bpsim:ScenarioParameters"/>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_123F06D4-E574-43FE-AFDA-94AB53E9A467" id="_lvXWiMn7EeuQRM1eyNocQQ">
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_123F06D4-E574-43FE-AFDA-94AB53E9A467" id="_2AXNeMp3EeuQRM1eyNocQQ">
             <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
               <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
                 <bpsim:NormalDistribution mean="0.0" standardDeviation="0.0"/>
@@ -52,7 +52,7 @@
         </bpsim:Scenario>
       </bpsim:BPSimData>
     </bpmn2:extensionElements>
-    <bpmn2:source>_lvXWgMn7EeuQRM1eyNocQQ</bpmn2:source>
-    <bpmn2:target>_lvXWgMn7EeuQRM1eyNocQQ</bpmn2:target>
+    <bpmn2:source>_2AXNcMp3EeuQRM1eyNocQQ</bpmn2:source>
+    <bpmn2:target>_2AXNcMp3EeuQRM1eyNocQQ</bpmn2:target>
   </bpmn2:relationship>
 </bpmn2:definitions>
